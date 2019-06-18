@@ -17,7 +17,7 @@ import com.irev.common.*;
 /**
  * Class		: Logger - handles application logging 
  * Author		: Srikanth Manne
- * Creation Date: 10/20/2017
+ * Creation Date: 6/10/2019
  */
 @Component
 public class Logger  {
