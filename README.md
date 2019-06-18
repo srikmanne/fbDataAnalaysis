@@ -1,5 +1,5 @@
 # facebookDataAnalaysis
-This app will help to integrate facebook and analyze facebook's user data like their interests,Tv shows,movies,places,books etc and stream using kafka and  write them into AWS S3 bucket.
+This app will help to integrate facebook and analyze facebook's user data by reading user's entire history of posts and their interests,Tv shows,movies,places,books etc and stream using kafka and  write them into AWS S3 bucket.
 Once user login into the app , user will see his pie chart of his interests and his favorites shows,books etc,Also this data will be streamed and that can be used for his recommendations later
 
 Technologies used:
