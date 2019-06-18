@@ -9,7 +9,7 @@ Once user login into the app , user will see his pie chart of his interests and 
 Technologies used:
 Front End: HTML,Javascript,jQuery,CSS,D3JS(Data Visulatization) 
 Back End : java/J2ee,Spring MVC,restFB Postgress DB
-Streaming : Zookeeper,Apache Kafka
+Streaming : Zookeeper,Apache Kafka,
 Sorage Service: AWS S3
 WebServer:Tomcat
 
