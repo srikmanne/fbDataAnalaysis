@@ -1,7 +1,7 @@
 # facebook integration and data analysis
 
-The reason why i picked Facebook for this concept, Its the only social app for now which has entire user data apart from google . 
-The data is big and helps to analyze any person's profile(of course if they provide permission)
+Why Facebook :It is the only social app for now which has entire user data apart from google .
+The data is big and helps to analyze the person's profile(only if the user permits to access)
 
 This app will help to integrate facebook and analyze facebook's user data by reading user's entire history of posts and their interests,Tv shows,movies,places,books etc .The data read is streamed using kafka and write them into AWS S3 bucket.
 Once user login into the app , user will see his pie chart of his interests and his favorites shows,books etc,Also this data will be streamed and that can be used for his recommendations later
