@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+        <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
+        <script type="text/javascript" src="js/iRevInit.js"></script> 
+        <script type="text/javascript" src="js/iRevCommon.js"></script> 
+        <script type="text/javascript" src="js/iRevLogin.js"></script> 
+        <script type="text/javascript" src="js/iRevAjax.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/irevCommon.css" />
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <script type="text/javascript">
+
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: 'your app id goes here',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v2.10'
+                });
+                // This function is called when someone finishes with the Login
+                // Button.  See the onlogin handler attached to it in the sample
+                // code below.
+
+                FB.getLoginStatus(function (response) {
+                    if (response.status === 'connected') {
+                        // Logged into your app and Facebook.
+                        iRevLogin.accessToken = response.authResponse.accessToken;                        
+                        iRevLogin.fbLogin();
+                        var login = document.getElementById("login");
+                        if (login) {
+                            login.style.display = "none";
+                            //  login.innerHTML= "";
+                        }
+                        var dasboard = document.getElementById("dasboard");
+                        if (dasboard) {
+                            dasboard.style.display = "block";
+                        }
+
+                    } else {
+                        var login = document.getElementById("login");
+                        if (login) {
+                            login.style.display = "block";
+                            //  login.innerHTML= "";
+                        }
+                        var dasboard = document.getElementById("dasboard");
+                        if (dasboard) {
+                            dasboard.style.display = "none";
+                        }
+                    }
+                }, {scope: 'public_profile,email,user_posts,user_likes,user_photos'});
+
+            };
+
+            function initFbLogin() {
+                FB.login(function (response) {
+                    if (response.status === 'connected') {
+                        iRevLogin.accessToken = response.authResponse.accessToken;
+                        // Logged into your app and Facebook.
+                        var login = document.getElementById("login");
+                        if (login) {
+                            login.style.display = "none";
+                            //  login.innerHTML= "";
+                        }
+                        iRevLogin.fbLogin();
+                        var dasboard = document.getElementById("dasboard");
+                        if (dasboard) {
+                            dasboard.style.display = "block";
+                        }
+                    } else {
+                        // The person is not logged into this app or we are unable to tell. 
+                    }
+                }, {scope: 'public_profile,email,user_posts,user_likes,user_actions.music,user_actions.books,user_photos'});
+            }
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <title>Irev</title>
+    </head>
+
+    <body onload="iRevInit.init();">
+        <div id="login" class="login-div" style="display: inline-block">                     
+            <input type="submit" class="loginBtn loginBtn--facebook" onclick="initFbLogin();" value="Login with Facebook" />            
+            <div><img style="padding-top: 5%;padding-left: 34%;" src="media/movies.png" /> </div>
+            <div><img  style="float: right;"  src="media/music.png" /> </div>    
+            <div><img style="padding-right: 37%;" src="media/books.png" /> </div>    
+            <div><img style="padding-left: 34%;" src="media/location.png" /> </div>    
+            <div><img  style="float: right;" src="media/tvshows.png" /> </div>            
+            <div><img src="media/restaurant.png"/></div>
+        </div>
+        <div id="dasboard" style="display: none;">
+            <div id="profilepic" style="width:20%;float:left;">              
+            </div>
+            <div id="graphic" style="display: inline-block;padding-left: 2%"></div>
+            <br><br>
+            <div id="timeLine" style="float: left;width:30%;">
+                
+            </div>           
+            <div style="width:70%;height:40%;float: right;" id='slidePics' class="w3-content w3-display-container">
+            </div>  
+            
+        </div>   
+    </body>
+</html>
